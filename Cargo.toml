@@ -1,0 +1,18 @@
+[workspace]
+members = ["blazon", "blazon-core"]
+resolver = "2"
+
+[workspace.package]
+edition = "2024"
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/lmmx/blazon"
+rust-version = "1.88"
+
+[workspace.dependencies]
+blazon-core = { path = "blazon-core", version = "0.1.0" }
+
+assert_cmd = "2"
+facet = "0.30.0"
+facet-args = "0.30.0"
+insta = "1.0"
+tempfile = "3"

@@ -1,0 +1,27 @@
+[package]
+description = "Core functionality for blazon - a minimal Rust code formatter"
+documentation = "https://docs.rs/blazon-core"
+edition.workspace = true
+homepage = "https://github.com/lmmx/blazon"
+include = ["README.md", "src/**/*"]
+license.workspace = true
+name = "blazon-core"
+readme = "README.md"
+repository.workspace = true
+rust-version.workspace = true
+version = "0.1.0"
+
+[features]
+default = []
+
+[dependencies]
+ctor = { default-features = false, version = "0.6.1" }
+
+[dev-dependencies]
+braces = "0.2.6"
+duct = "1.1.1"
+imara-diff = "0.2.0"
+insta.workspace = true
+rust-format = "0.3.4"
+tempfile.workspace = true
+walkdir = "2.5.0"
