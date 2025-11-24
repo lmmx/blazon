@@ -9,7 +9,7 @@ repository = "https://github.com/lmmx/blazon"
 rust-version = "1.88"
 
 [workspace.dependencies]
-blazon-core = { path = "blazon-core", version = "0.1.1" }
+blazon-core = { path = "blazon-core", version = "0.1.2" }
 
 assert_cmd = "2"
 facet = "0.30.0"
