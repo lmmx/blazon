@@ -1,0 +1,17 @@
+---
+source: blazon/tests/cli.rs
+expression: stdout
+---
+Usage: blazon [OPTIONS] [README]
+
+Generate and update badge metadata in README files.
+
+Arguments:
+  [README]             Path to README file (default: README.md)
+
+Options:
+  -c, --crate-name NAME  Crate name for badges (default: infer)
+  -b, --binary NAME      Binary name to measure (default: infer)
+  --no-build             Skip building
+  -v, --verbose          Show verbose output
+  -h, --help             Show this help message

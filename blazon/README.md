@@ -1,8 +1,7 @@
 # blazon
 
-<!-- just: blazon-md -->
-[![Dependencies: 123](https://img.shields.io/badge/cargo%20tree-123-blue)](https://crates.io/crates/blazon)
-[![Binary Size: 100MB](https://img.shields.io/badge/build%20size-100MB-blue)](https://crates.io/crates/blazon)<!-- /just: blazon-md -->
+<!-- just: blazon-md -->\n[![Dependencies: 26](https://img.shields.io/badge/cargo%20tree-26-blue)](https://crates.io/crates/blazon)
+[![Binary Size: 1.2M](https://img.shields.io/badge/build%20size-1.2M-green)](https://crates.io/crates/blazon)<!-- /just: blazon-md -->
 [![crates.io](https://img.shields.io/crates/v/blazon.svg)](https://crates.io/crates/blazon)
 [![documentation](https://docs.rs/blazon/badge.svg)](https://docs.rs/blazon)
 [![MIT licensed](https://img.shields.io/crates/l/blazon.svg)](https://github.com/lmmx/blazon/blob/master/LICENSE)

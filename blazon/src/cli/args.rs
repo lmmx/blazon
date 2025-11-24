@@ -2,17 +2,21 @@ use facet::Facet;
 
 #[derive(Facet)]
 pub struct Args {
-    /// Path(s) to source file(s) or directory to format
-    #[facet(positional, default = vec![".".to_string()])]
-    pub sources: Vec<String>,
+    /// Path to README file to update
+    #[facet(positional, default = "README.md".to_string())]
+    pub readme: String,
 
-    /// Check mode: exit with error if files need formatting
+    /// Crate name for crates.io link (default: infer from Cargo.toml)
     #[facet(named, short = 'c', long, default)]
-    pub check: bool,
+    pub crate_name: Option<String>,
 
-    /// Write formatted output back to files (default: print to stdout)
-    #[facet(named, short = 'w', long, default)]
-    pub write: bool,
+    /// Binary name to measure (default: infer from Cargo.toml)
+    #[facet(named, short = 'b', long, default)]
+    pub binary: Option<String>,
+
+    /// Skip building in release mode before measuring
+    #[facet(named, long, default)]
+    pub no_build: bool,
 
     /// Show verbose output
     #[facet(named, short = 'v', long, default)]
@@ -24,29 +28,17 @@ pub struct Args {
 }
 
 pub fn print_usage() {
-    println!("Usage: blazon [OPTIONS] [SOURCES]...");
+    println!("Usage: blazon [OPTIONS] [README]");
     println!();
-    println!("A minimal Rust code formatter.");
+    println!("Generate and update badge metadata in README files.");
     println!();
     println!("Arguments:");
-    println!("  [SOURCES]...       Path(s) to file(s) or directory to format (default: 'src')");
+    println!("  [README]             Path to README file (default: README.md)");
     println!();
     println!("Options:");
-    println!("  -c, --check        Check if files need formatting (exit 1 if so)");
-    println!("  -w, --write        Write formatted output back to files");
-    println!("  -v, --verbose      Show verbose output");
-    println!("  -h, --help         Show this help message");
-    println!();
-    println!("Examples:");
-    println!("  # Format a single file and print to stdout");
-    println!("  blazon src/lib.rs");
-    println!();
-    println!("  # Format multiple files");
-    println!("  blazon src/*.rs");
-    println!();
-    println!("  # Check if files need formatting");
-    println!("  blazon --check src/");
-    println!();
-    println!("  # Format files in-place");
-    println!("  blazon --write src/");
+    println!("  -c, --crate-name NAME  Crate name for badges (default: infer)");
+    println!("  -b, --binary NAME      Binary name to measure (default: infer)");
+    println!("  --no-build             Skip building");
+    println!("  -v, --verbose          Show verbose output");
+    println!("  -h, --help             Show this help message");
 }

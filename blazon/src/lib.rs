@@ -5,10 +5,9 @@
 
 //! # blazon
 //!
-//! A minimal Rust code formatter.
+//! A minimal badge generate for Rust crate stats.
 //!
-//! This crate provides a simple, fast formatter for Rust source code,
-//! with both library and CLI interfaces.
+//! This crate provides badge generation for dependency count and binary size, as a library or CLI.
 
-// Re-export the core formatting functionality
-pub use blazon_core::{blazon_debug, format_source};
+// Re-export the core functionality
+pub use blazon_core::{Metrics, blazon_debug, collect_metrics, generate_badges};
