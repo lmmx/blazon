@@ -156,7 +156,7 @@ pub fn update_readme(readme_path: &str, badge_content: &str) -> Result<(), Strin
     let patch = Patch {
         file: Some(readme_path.to_string()),
         snippet,
-        replacement: format!("\n{}\n", badge_content),
+        replacement: format!("\n{}", badge_content),
     };
 
     // Read the file content

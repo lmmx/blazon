@@ -4,9 +4,9 @@
 [![documentation](https://docs.rs/blazon/badge.svg)](https://docs.rs/blazon)
 [![MIT licensed](https://img.shields.io/crates/l/blazon.svg)](https://github.com/lmmx/blazon/blob/master/LICENSE)
 [![pre-commit.ci status](https://results.pre-commit.ci/badge/github/lmmx/blazon/master.svg)](https://results.pre-commit.ci/latest/github/lmmx/blazon/master)
-[![free of syn](https://img.shields.io/badge/free%20of-syn-hotpink)](https://github.com/fasterthanlime/free-of-syn)<!-- just: blazon-md -->
-[![Dependencies: 26](https://img.shields.io/badge/cargo%20tree-26-blue)](https://crates.io/crates/blazon)
-[![Binary Size: 1.2M](https://img.shields.io/badge/build%20size-1.2M-green)](https://crates.io/crates/blazon)<!-- /just: blazon-md -->
+[![free of syn](https://img.shields.io/badge/free%20of-syn-hotpink)](https://github.com/fasterthanlime/free-of-syn)<!-- auto-generated badges -->
+[![Dependencies: 22](https://img.shields.io/badge/cargo%20tree-22-blue)](https://crates.io/crates/blazon)
+[![Binary Size: 1.3M](https://img.shields.io/badge/build%20size-1.3M-green)](https://crates.io/crates/blazon)<!-- /auto-generated badges -->
 
 blazon is a fast minimal badge generator for Rust crate stats.
 
