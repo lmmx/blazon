@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.3](https://github.com/lmmx/blazon/compare/blazon-v0.1.2...blazon-v0.1.3) - 2025-11-24
+
+### <!-- 9 -->Other
+
+- shorten the comment marker to just 'blazon' and '/blazon'
+
 ## [0.1.2](https://github.com/lmmx/blazon/compare/blazon-v0.1.1...blazon-v0.1.2) - 2025-11-24
 
 ### <!-- 9 -->Other
