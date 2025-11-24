@@ -1,4 +1,4 @@
 # Update the blazon-generated badges in README.md using textum
-update-readme-badges:
+emblazon:
     just reinstall
     blazon -b blazon -c blazon
