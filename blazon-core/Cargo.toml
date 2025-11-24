@@ -15,7 +15,7 @@ version = "0.1.1"
 default = []
 
 [dependencies]
-textum = { features = ["facet"], version = "0.2.0" }
+textum = { features = ["facet"], version = "0.4.0" }
 
 [dev-dependencies]
 braces = "0.2.6"

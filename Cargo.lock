@@ -756,9 +756,9 @@ checksum = "8f50febec83f5ee1df3015341d8bd429f2d1cc62bcba7ea2076759d315084683"
 
 [[package]]
 name = "textum"
-version = "0.2.0"
+version = "0.4.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "7d589edbfd970372abf341853dccafa285b6f090dcb8613b67d8863436c26812"
+checksum = "dd85de8f51993dc83743aedbc449aeb0b867e0c587ac7360199361dabde1b9a1"
 dependencies = [
  "facet",
  "ropey",
