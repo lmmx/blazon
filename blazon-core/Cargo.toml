@@ -1,5 +1,5 @@
 [package]
-description = "Core functionality for blazon - a minimal Rust code formatter"
+description = "Core functionality for blazon - a fast minimal badge generator for Rust crate stats"
 documentation = "https://docs.rs/blazon-core"
 edition.workspace = true
 homepage = "https://github.com/lmmx/blazon"
@@ -15,7 +15,7 @@ version = "0.1.0"
 default = []
 
 [dependencies]
-ctor = { default-features = false, version = "0.6.1" }
+textum = { features = ["facet"], version = "0.2.0" }
 
 [dev-dependencies]
 braces = "0.2.6"

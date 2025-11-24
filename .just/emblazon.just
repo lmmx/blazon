@@ -1,56 +1,37 @@
-# Dummy stand-in for what the software would do
+# Generate dependency and binary size badges
 blazon-md:
     #!/usr/bin/env bash
     set -euo pipefail
-
+    
+    # Get dependency count
+    dep_count=$(cargo tree --edges normal --prefix none | sort -u | wc -l)
+    
+    # Get binary size (build if needed)
+    binary_name="blazon"
+    if [ ! -f "target/release/$binary_name" ] || [ "Cargo.toml" -nt "target/release/$binary_name" ]; then
+        cargo build --release --quiet --features cli
+    fi
+    
+    # Get size in bytes and format
+    size=$(stat -c%s "target/release/$binary_name" 2>/dev/null || stat -f%z "target/release/$binary_name")
+    size_mb=$(echo "scale=1; $size / 1048576" | bc)
+    
+    # Generate inline badge markdown with shields.io
     crates_io_url='https://crates.io/crates/blazon'
-
-    # Data - later will compute these dynamically
-    cargo_tree_count="123"
-    bin_size="100MB"
-
-    pre='[!['
-    mid="]("
-    suf=")]($crates_io_url)"
-
-    # deps_img='https://img.shields.io/badge/crates.io-blazon-blue'
-    # size_img='https://img.shields.io/badge/crates.io-blazon-blue'
-    deps_img="https://img.shields.io/badge/cargo%20tree-$cargo_tree_count-blue"
-    size_img="https://img.shields.io/badge/build%20size-$bin_size-blue"
-
-    echo "${pre}Dependencies: ${cargo_tree_count}${mid}${deps_img}${suf}"
-    echo "${pre}Binary Size: ${bin_size}${mid}${size_img}${suf}"
+    
+    deps_img="https://img.shields.io/badge/cargo%20tree-$dep_count-blue"
+    size_img="https://img.shields.io/badge/build%20size-${size_mb}M-green"
+    
+    echo "[![Dependencies: ${dep_count}](${deps_img})](${crates_io_url})"
+    echo "[![Binary Size: ${size_mb}M](${size_img})](${crates_io_url})"
 
 # Update the blazon-generated badges in README.md using textum
-update-readme-conf:
+update-readme-badges:
     #!/usr/bin/env bash
     set -euo pipefail
-
-    # Get the new blazon content (trailing newlines will be stripped by bash)
     NEW_CONTENT=$(just blazon-md)
-
-    # Create patch JSON using jq to build it properly
-    # Add newlines in jq where they won't be stripped
-    jq -n \
-      --arg file "README.md" \
-      --arg content "${NEW_CONTENT}" \
-      '[{
-        file: $file,
-        snippet: {
-          Between: {
-            start: {
-              target: {
-                Literal: "<!-- just: blazon-md -->"
-              },
-              mode: "Exclude"
-            },
-            end: {
-              target: {
-                Literal: "<!-- /just: blazon-md -->"
-              },
-              mode: "Exclude"
-            }
-          }
-        },
-        replacement: ("\n" + $content + "")
-      }]' | textum
+    textum replace \
+        "<!-- just: blazon-md -->" \
+        $'\n'"${NEW_CONTENT}" \
+        --until "<!-- /just: blazon-md -->" \
+        README.md
