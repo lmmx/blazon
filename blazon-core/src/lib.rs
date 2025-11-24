@@ -26,10 +26,10 @@ pub fn count_dependencies() -> Result<usize, String> {
     let mut unique_deps: HashSet<String> = HashSet::new();
 
     for line in stdout.lines() {
-        if let Some(dep) = line.trim().split_whitespace().next() {
-            if !dep.is_empty() {
-                unique_deps.insert(dep.to_string());
-            }
+        if let Some(dep) = line.split_whitespace().next()
+            && !dep.is_empty()
+        {
+            unique_deps.insert(dep.to_string());
         }
     }
 
@@ -51,20 +51,18 @@ pub fn get_binary_name() -> Result<String, String> {
 
     // Simple string search for binary target
     for line in stdout.lines() {
-        if line.contains(r#""kind":["bin"]"#) || line.contains(r#""kind": ["bin"]"#) {
-            if let Some(name_line) = stdout
+        if (line.contains(r#""kind":["bin"]"#) || line.contains(r#""kind": ["bin"]"#))
+            && let Some(name_line) = stdout
                 .lines()
                 .skip_while(|l| {
                     !l.contains(r#""kind":["bin"]"#) && !l.contains(r#""kind": ["bin"]"#)
                 })
                 .find(|l| l.contains(r#""name":"#))
-            {
-                if let Some(start) = name_line.find(r#""name":""#) {
-                    let name_start = start + r#""name":""#.len();
-                    if let Some(end) = name_line[name_start..].find('"') {
-                        return Ok(name_line[name_start..name_start + end].to_string());
-                    }
-                }
+            && let Some(start) = name_line.find(r#""name":""#)
+        {
+            let name_start = start + r#""name":""#.len();
+            if let Some(end) = name_line[name_start..].find('"') {
+                return Ok(name_line[name_start..name_start + end].to_string());
             }
         }
     }
