@@ -47,7 +47,7 @@ pub fn count_dependencies() -> Result<usize, String> {
 
     let stdout = String::from_utf8_lossy(&output.stdout);
     let mut unique_deps: std::collections::HashSet<&str> = std::collections::HashSet::new();
-    
+
     for line in stdout.lines() {
         let dep = line.trim().split_whitespace().next().unwrap_or("");
         if !dep.is_empty() {
