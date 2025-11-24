@@ -7,5 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.1](https://github.com/lmmx/blazon/compare/blazon-v0.1.0...blazon-v0.1.1) - 2025-11-24
+
+### <!-- 4 -->Documentation
+
+- move comment to end of badges list
+
+### <!-- 5 -->Refactor
+
+- use blazon in the repo itself
+
 ### Added
 - Initial release
