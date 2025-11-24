@@ -141,11 +141,11 @@ pub fn update_readme(readme_path: &str, badge_content: &str) -> Result<(), Strin
     use textum::{Boundary, BoundaryMode, Patch, Snippet, Target};
 
     let start = Boundary::new(
-        Target::Literal("<!-- auto-generated badges -->".to_string()),
+        Target::Literal("<!-- blazon -->".to_string()),
         BoundaryMode::Exclude,
     );
     let end = Boundary::new(
-        Target::Literal("<!-- /auto-generated badges -->".to_string()),
+        Target::Literal("<!-- /blazon -->".to_string()),
         BoundaryMode::Exclude,
     );
 
