@@ -4,7 +4,7 @@ path = "src/cli.rs"
 required-features = ["cli"]
 
 [package]
-description = "A minimal Rust code formatter"
+description = "A fast minimal badge generator for Rust crate stats"
 documentation = "https://docs.rs/blazon"
 edition.workspace = true
 homepage = "https://github.com/lmmx/blazon"
